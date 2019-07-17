@@ -1,0 +1,308 @@
+swagger: "2.0"
+info:
+  description: This is the public API for citizenup.app
+  version: 1.0.0
+  title: CitizenUp
+  termsOfService: 'https://citizenup.app/terms/'
+  contact:
+    email: api@citizenup.app
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: citizenup.app
+basePath: /api
+tags:
+  - name: user
+    description: User Information
+    externalDocs:
+      description: ''
+      url: 'https://citizenup.app/docs/user'
+  - name: documents
+    description: Fetch Regulations.gov documents
+    externalDocs:
+      description: ''
+      url: 'https://citizenup.app/docs/document'
+  - name: tags
+    description: 'Add, Edit, and remove Tags'
+    externalDocs:
+      description: ''
+      url: 'https://citizenup.app/docs/tag'
+  - name: subscriptions
+    description: Maintain personal subscriptions
+    externalDocs:
+      description: ''
+      url: 'https://citizenup.app/docs/subscription'
+  - name: comments
+    description: View / Submit document comments
+    externalDocs:
+      description: ''
+      url: 'https://citizenup.app/docs/comment'
+schemes:
+  - https
+paths:
+  /me:
+    get:
+      tags:
+        - user
+      summary: Fetch current user information
+      description: ''
+      operationId: getUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: User not logged in
+    patch:
+      tags:
+        - user
+      summary: Update current user information
+      description: ''
+      operationId: updateUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      - in: body
+        name: user
+        description: User data to update
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          description: User not logged in
+    post:
+      tags:
+        - user
+      summary: Register new user
+      description: ''
+      operationId: createUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      - in: body
+        name: user
+        description: User data to update
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/UserResponse'
+        '400':
+          description: Missing required fields
+  /session:
+    post:
+      tags:
+        - user
+      summary: Authenticate user
+      responses:
+        200:
+          description: Login Successful
+          schema:
+            $ref: '#/definitions/UserResponse'
+    delete:
+      tags:
+        - user
+      summary: End user session
+      responses:
+        200:
+          description: Logout Successful
+  /me/subscriptions:
+    get:
+      tags:
+        - subscriptions
+      summary: Fetch user tag subscriptions
+      responses:
+        200:
+          description: Successfully fetched user tag subscriptions
+          schema:
+            $ref: '#/definitions/SubscriptionResponse'
+  /me/notifications:
+    get:
+      tags:
+        - user
+      summary: Fetch user notifications
+      responses:
+        200:
+          description: Successfully fetched user notifications
+          schema:
+            $ref: '#/definitions/NotificationResponse'
+  /documents:
+    get:
+      tags:
+        - documents
+      summary: Fetch a list of documents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/DocumentResponse'
+  '/documents/{documentId}':
+    get:
+      tags:
+        - documents
+      summary: fetch details of a specified document
+      parameters:
+        - name: documentId
+          in: path
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/DocumentResponse'
+        '404':
+          description: Document not found
+definitions:
+  Subscription:
+    type: object
+  Notification:
+    type: object
+  Tag:
+    type: object
+  Comment:
+    type: object
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      email:
+        type: string
+        format: email
+      firstName:
+        type: string
+      lastName:
+        type: string
+      postal:
+        type: string
+  Document:
+    type: object
+    properties:
+      agencyAconym:
+        type: string
+      allowLateComment:
+        type: boolean
+      attachmentCount:
+        type: integer
+      commentDueDate:
+        type: string
+        format: date-time
+      commentStartDate:
+        type: string
+        format: date-time
+      docketId:
+        type: string
+      docketTitle:
+        type: string
+      docketType:
+        type: string
+  ApiResponse:
+    description: Base response
+    properties:
+      type:
+        type: string
+        enum: [document, user, subscription, notification, tag]
+      links:
+        type: object
+        properties:
+          self:
+            type: string
+            format: url
+          next:
+            type: string
+            format: url
+          previous:
+            type: string
+            format: url
+        required:
+          - self
+  DocumentResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+  UserResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      type:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+  CommentResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Comment'
+  TagResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Tag'
+  NotificationResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Notification'
+  SubscriptionResponse:
+    type: object
+    allOf:
+      - $ref: '#/definitions/ApiResponse'
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Subscription'
+securityDefinitions:
+  BearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+  ApiKeyAuth:
+    type: apiKey
+    name: X-API-KEY
+    in: header
+security:
+  - ApiKeyAuth: []
+  - BearerAuth: []

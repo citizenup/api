@@ -1,0 +1,17 @@
+{
+    "repositories": [
+    ],
+    "require": {
+        "slim/slim": "^3.7",
+        "monolog/monolog": "1.*",
+        "guzzlehttp/guzzle": "^6.2",
+        "ramsey/uuid": "^3.1",
+        "maslosoft/oauth2-twitter": "^1.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Citizen\\": "lib"
+        }
+    },
+    "minimum-stability": "dev"
+}
