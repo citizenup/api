@@ -160,6 +160,44 @@
         }
       }
     },
+    "/me/notifications": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetch user notifications",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched user notifications",
+            "schema": {
+              "$ref": "#/definitions/NotificationResponse"
+            }
+          }
+        }
+      }
+    },
+    "/me/notifications/{notificationId}": {
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetch user notifications",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "notificationId",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully remove user notification"
+          }
+        }
+      }
+    },
     "/session": {
       "post": {
         "tags": [
@@ -201,20 +239,224 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "subscriptions"
+        ],
+        "summary": "Add a subscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "subscription",
+            "description": "Subscription definition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Subscription Successful",
+            "schema": {
+              "$ref": "#/definitions/SubscriptionResponse"
+            }
+          }
+        }
       }
     },
-    "/me/notifications": {
+    "/me/subscriptions/{subscriptionId}": {
       "get": {
         "tags": [
-          "user"
+          "subscriptions"
         ],
-        "summary": "Fetch user notifications",
+        "summary": "Fetch subscription details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Successfully fetched user notifications",
+            "description": "Fetch Successful",
             "schema": {
-              "$ref": "#/definitions/NotificationResponse"
+              "$ref": "#/definitions/SubscriptionResponse"
             }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update subscription details",
+        "tags": [
+          "subscriptions"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "subscription",
+            "description": "Subscription definition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscription update successful",
+            "schema": {
+              "$ref": "#/definitions/SubscriptionResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove subscription",
+        "tags": [
+          "subscriptions"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscription removal successful"
+          }
+        }
+      }
+    },
+    "/tags": {
+      "get": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Fetch user tag tags",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched user tag tags",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Add a tag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "tag",
+            "description": "tag definition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Tag creation successful",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            }
+          }
+        }
+      }
+    },
+    "/tags/{tagId}": {
+      "get": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Fetch tag details",
+        "responses": {
+          "200": {
+            "description": "Fetch Successful",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tagId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update tag details",
+        "tags": [
+          "tags"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "tag",
+            "description": "tag definition",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          {
+            "in": "path",
+            "name": "tagId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "tag update successful",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove tag",
+        "tags": [
+          "tags"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tagId",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "tag removal successful"
           }
         }
       }
@@ -271,22 +513,124 @@
   },
   "definitions": {
     "Subscription": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "userId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "deliveryType": {
+          "type": "string",
+          "enum": [
+            "push",
+            "email",
+            "sms"
+          ]
+        },
+        "lastActivated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastDeactivated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastSent": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tagId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "tag": {
+          "type": "object",
+          "$ref": "#/definitions/Tag"
+        }
+      }
     },
     "Notification": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "userId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content": {
+          "type": "string"
+        },
+        "isRead": {
+          "type": "boolean"
+        },
+        "readDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
     },
     "Tag": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "label": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
     },
     "Comment": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "documentId": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "body": {
+          "type": "string"
+        },
+        "dateSubmitted": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
     },
     "User": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer"
+          "type": "string",
+          "format": "uuid"
         },
         "email": {
           "type": "string",
@@ -331,6 +675,37 @@
         },
         "docketType": {
           "type": "string"
+        },
+        "frNumber": {
+          "type": "string"
+        },
+        "numberOfCommentsReceived": {
+          "type": "integer"
+        },
+        "openForComment": {
+          "type": "boolean"
+        },
+        "postedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rin": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
         }
       }
     },
