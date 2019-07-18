@@ -1,0 +1,124 @@
+{
+    "agency": "Commodity Credit Corporation",
+    "agencyAcronym": "CCC",
+    "agendaStageOfRulemaking": {
+        "label": "Agenda Stage of Rulemaking",
+        "value": "Completed Action"
+    },
+    "cfrCitation": "7 CFR 799",
+    "contact": [
+        {
+            "agency": "FSA",
+            "agencyName": "FARM SERVICE AGENCY",
+            "city": "Washington",
+            "emailAddress": "deirdre.holder@wdc.usda.gov",
+            "fax": "202 720-5233",
+            "firstName": "Deirdre",
+            "lastName": "Holder",
+            "parentAgency": "USDA",
+            "parentAgencyName": "DEPARTMENT OF AGRICULTURE",
+            "phone": "202 205-5851",
+            "state": "DC",
+            "streetAddress": "1400 Independence Avenue SW.",
+            "title": "Director, Regulatory Review Group",
+            "zip": "20250-0572"
+        }
+    ],
+    "docketAbstract": "Note:  Regulations.gov shows 2 different numbers for the comments because there were 2 duplicate comments submitted (once under each agency listing), so the total number of posted comments is 18, but the total number of comments submitted into regulations.gov is shown as 20.\n\nThe Farm Service Agency (FSA) proposes to consolidate, update,\nand amend its regulations implementing the National Environmental Policy Act of 1969, as amended (NEPA). FSA’s NEPA regulations have been in place since 1980. Significant changes to the structure of FSA and the scope of FSA’s programs require changes in FSA’s NEPA regulations. The proposed changes would also better align FSA’s NEPA regulations with the President’s Council on Environmental Quality (CEQ) NEPA regulations and guidance and meet the FSA responsibilities for periodic review of their categorical exclusions. One component of the changes proposed to improve the clarity and consistency of the regulations, is the proposed additions to the existing list of categorical exclusions (CatExs). CatExs involve actions that typically do not result in individual or cumulative\nsignificant environmental effects or impacts and therefore do not merit\nfurther environmental review in an Environmental Assessment (EA) or\nEnvironmental Impact Statement (EIS). This proposed rule would also propose to expand and clarify the list of actions that require an EA. In addition, this rule proposes conforming changes to existing references to FSA NEPA regulations in other current USDA regulations. The revisions to the FSA NEPA implementing regulations are intended to improve transparency and clarity of the FSA NEPA process for FSA program participants and to provide for a more efficient environmental review that will lead to better decisions and outcomes for stakeholders and the environment.",
+    "docketId": "CCC-2014-0010",
+    "energyEffects": {
+        "label": "Energy Effects",
+        "value": "No"
+    },
+    "federalismImplications": {
+        "label": "Federalism Implications",
+        "value": "No"
+    },
+    "governmentLevelsAffected": {
+        "label": "Government Levels Affected",
+        "value": "No"
+    },
+    "impactsAndEffects": "None",
+    "includedInRegulatoryPlan": {
+        "label": "Included in Regulatory Plan",
+        "value": "No"
+    },
+    "internationalImpacts": {
+        "label": "International Impacts",
+        "value": "No"
+    },
+    "keywords": {
+        "label": "Keyword(s)",
+        "value": "NEPA"
+    },
+    "legalAuthorities": {
+        "label": "Legal Authorities",
+        "value": "42 U.S.C. 4321 to 4370"
+    },
+    "legalDeadlines": {
+        "label": "Legal Deadlines",
+        "value": "None"
+    },
+    "majorRule": {
+        "label": "Major Rule",
+        "value": "No"
+    },
+    "numberOfComments": 20,
+    "parentAgency": "Department of Agriculture",
+    "parentAgencyAcronym": "USDA",
+    "priority": "Substantive, Nonsignificant",
+    "program": {
+        "label": "Program",
+        "value": "Other"
+    },
+    "publicationPeriod": {
+        "label": "Publication Period",
+        "value": "Fall 2016"
+    },
+    "requiresRegulatoryFlexibilityAnalysis": {
+        "label": "Requires Regulatory Flexibility Analysis",
+        "value": "No"
+    },
+    "rin": "0560-AH02",
+    "ruleMakingStage": "Completed",
+    "shortTitle": {
+        "label": "Short Title",
+        "value": "Compliance with theNational Environmental Policy Act and Related Authorities"
+    },
+    "smallEntitiesAffected": {
+        "label": "Small Entities Affected",
+        "value": "No"
+    },
+    "subType": {
+        "label": "Subtype",
+        "value": "Significant; Major"
+    },
+    "timeTables": [
+        {
+            "action": "NPRM",
+            "actionQualifier": "NPRM",
+            "date": "09/03/2014",
+            "frCitation": "79 FR 52239"
+        },
+        {
+            "action": "NPRM Comment Period End",
+            "actionQualifier": "NPRM Comment Period End",
+            "date": "12/02/2014"
+        },
+        {
+            "action": "Final Rule",
+            "actionQualifier": "Final Rule",
+            "date": "08/03/2016",
+            "frCitation": "81 FR 51274"
+        }
+    ],
+    "title": "Environmental Policies and Procedures; Compliance with the National Environmental Policy Act and Related Authorities",
+    "type": {
+        "label": "Type",
+        "value": "Rulemaking"
+    },
+    "unfundedMandates": {
+        "label": "Unfunded Mandates",
+        "value": "No"
+    }
+}

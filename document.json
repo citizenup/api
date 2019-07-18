@@ -1,0 +1,44 @@
+{
+    "documents": [
+        {
+            "agencyAcronym": "EPA",
+            "allowLateComment": false,
+            "attachmentCount": 0,
+            "commentDueDate": "2014-10-03T23:59:59-04:00",
+            "commentStartDate": "2014-09-03T00:00:00-04:00",
+            "docketId": "EPA-R01-OAR-2012-0260",
+            "docketTitle": "Approval and Promulgation of Air Quality Implementation Plans; New Hampshire; 111(d) MWC State Plans for Large and Small Municipal Waste Incinerators and State Plan for Other Solid Waste Incinerators.",
+            "docketType": "Rulemaking",
+            "documentId": "EPA-R01-OAR-2012-0260-0002",
+            "documentStatus": "Posted",
+            "documentType": "Rule",
+            "frNumber": "2014-20803",
+            "numberOfCommentsReceived": 0,
+            "openForComment": false,
+            "postedDate": "2014-09-03T00:00:00-04:00",
+            "rin": "Not Assigned",
+            "title": "State Plans for Designated Facilities and Pollutants; Approvals and Promulgations: New Hampshire; Large and Small Municipal Waste Combustors"
+        },
+        {
+            "agencyAcronym": "CCC",
+            "allowLateComment": false,
+            "attachmentCount": 0,
+            "commentDueDate": "2014-12-02T23:59:59-05:00",
+            "commentStartDate": "2014-09-03T00:00:00-04:00",
+            "docketId": "CCC-2014-0010",
+            "docketTitle": "Environmental Policies and Procedures; Compliance with the\nNational Environmental Policy Act and Related Authorities",
+            "docketType": "Rulemaking",
+            "documentId": "CCC-2014-0010-0001",
+            "documentStatus": "Posted",
+            "documentType": "Proposed Rule",
+            "frNumber": "2014-20836",
+            "numberOfCommentsReceived": 20,
+            "openForComment": false,
+            "postedDate": "2014-09-03T00:00:00-04:00",
+            "rin": "0560-AH02",
+            "title": "Environmental Policies and Procedures: Compliance with the National Environmental Policy Act and Related Authorities"
+        }
+    ],
+    "totalNumRecords": 565
+}
+
