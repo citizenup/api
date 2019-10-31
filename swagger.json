@@ -649,7 +649,7 @@
     },
     "Document": {
       "type": "object",
-      "properties": {
+      "properties": {  // @todo add these columns to table definition
         "agencyAconym": {
           "type": "string"
         },
