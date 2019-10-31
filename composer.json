@@ -1,17 +1,50 @@
 {
-    "repositories": [
-    ],
-    "require": {
-        "slim/slim": "^3.7",
-        "monolog/monolog": "1.*",
-        "guzzlehttp/guzzle": "^6.2",
-        "ramsey/uuid": "^3.1",
-        "maslosoft/oauth2-twitter": "^1.0@dev"
+  "name": "CitizenUp",
+  "type": "project",
+  "description": "Improved user interface to Regulations.gov data",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@git.etherealvisions.us:mathus13/ethereal-session.git"
     },
-    "autoload": {
-        "psr-4": {
-            "Citizen\\": "lib"
-        }
+    {
+      "type": "git",
+      "url": "git@git.etherealvisions.us:mathus13/ethereal-router.git"
     },
-    "minimum-stability": "dev"
+    {
+      "type": "git",
+      "url": "git@git.etherealvisions.us:mathus13/ethereal-controllers.git"
+    },
+    {
+      "type": "git",
+      "url": "https://git.etherealvisions.us/mathus13/ethereal-db.git"
+    },
+    {
+      "type": "git",
+      "url": "https://git.etherealvisions.us/mathus13/ethereal-container.git"
+    },
+    {
+      "type": "git",
+      "url": "git@git.etherealvisions.us:mathus13/ethereal-cache.git"
+    }
+  ],
+  "require": {
+    "slim/slim": "^3.7",
+    "monolog/monolog": "1.*",
+    "guzzlehttp/guzzle": "^6.2",
+    "ramsey/uuid": "^3.1",
+    "maslosoft/oauth2-twitter": "^1.0@dev",
+    "ethereal/db": "^1.0",
+    "ethereal/cache": "dev-master",
+    "ethereal/controllers": "^1.0",
+    "ethereal/router": "^1.0",
+    "ethereal/session": "dev-master",
+    "ethereal/container": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Citizen\\": "lib/"
+    }
+  },
+  "minimum-stability": "dev"
 }
